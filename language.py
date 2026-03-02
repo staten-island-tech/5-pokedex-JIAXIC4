@@ -6,17 +6,17 @@ def lanuage(y):
     for i in range(len(y)):
         if y[i] == "t":
             t = t +1
-        if y[i] == "T":
+        elif y[i] == "T":
             T = T + 1
-        if y[i] == "s":
+        elif y[i] == "s":
             s = s + 1
-        if y[i] == "S": 
+        elif y[i] == "S": 
             S = S + 1
     print(t,T,s,S)
     if t + T > s + S:
         print("english")
 
-    if t + T < s + S:
+    elif t + T < s + S:
         print("probably french")
 
 
