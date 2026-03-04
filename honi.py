@@ -11,8 +11,9 @@ def hon(x):
         if honi == 3 and i == "N":
             honi = honi+1
         if honi == 4 and i == "I":
+            honi = 1
             honip= honip +1
             
     print(honip)
 
-hon("HONIHOOOOOOOOONI")
+hon("HONIHONIHOOOOOOOOOOOOOOOOOOOOOOOOOOIN")
