@@ -3,8 +3,8 @@ o = False
 n = False
 i = False
 
+
 def honi (x):
-    honi = 0
     for i in range (len(x)):
         if x[i] == "h" or x[i] == "H":
             h = True
