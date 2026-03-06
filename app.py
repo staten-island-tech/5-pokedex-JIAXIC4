@@ -5,9 +5,8 @@ pokedex = open("./pokedex.json", encoding="utf8")
 data = json.load(pokedex)
 print(data[0])
 
-def pokemon(x):
-    for index, item in enumerate(json, start=0):
-        print(index, ":", item["Name"])
+for i in data["name"]:
+    print(i)
 
 
 
