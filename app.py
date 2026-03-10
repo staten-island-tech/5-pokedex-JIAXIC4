@@ -5,8 +5,41 @@ pokedex = open("./pokedex.json", encoding="utf8")
 data = json.load(pokedex)
 print(data[0])
 
-for i in data["name"]:
-    print(i)
+print("Welcome to Jiaxi's Store! Select an item to purchase!:")
+
+for index, item in enumerate(data, start=0):
+    print(index, ":", item["name"])
+
+language = input("What language do you want?")
+
+for index, item in enumerate(data, start=0):
+    print(index, ":", item[language])
+
+cart = []
+total = 0
+done = "no"
+
+while done == "no":
+    purchase = input("What would you like to buy? : ").strip().lower()
+    found = False
+    for items in item:
+        if purchase == data["Name"].strip().lower(): 
+            cart.append(items) 
+            total += items["Price"]   
+            done = input("Are you done with your purchase?")
+            found = True
+            break
+    
+    if not found:
+        print("Your Item is not avalible in this store")
+        done = input("Are you done with your purchase?")
+
+if done == "yes":
+    print("Here are the items in your cart")
+    for items in cart:
+        print("-", items)
+    print("Total: $", total)
+
 
 
 
