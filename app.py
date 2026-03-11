@@ -13,7 +13,7 @@ for index, item in enumerate(data, start=0):
 language = input("What language do you want?")
 
 for index, item in enumerate(data, start=0):
-    print(index, ":", item[language])
+    print(index, ":", item["name", language])
 
 cart = []
 total = 0
