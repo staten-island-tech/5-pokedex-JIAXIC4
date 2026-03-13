@@ -3,6 +3,7 @@ import json
 pokedex = open("./pokedex.json", encoding="utf8")
 ## create variable "data" that represents the enitre pokedex list
 data = json.load(pokedex)
+
 print(data[0])
 
 print("Welcome to Jiaxi's Store! Select an item to purchase!:")
@@ -10,37 +11,24 @@ print("Welcome to Jiaxi's Store! Select an item to purchase!:")
 for index, item in enumerate(data, start=0):
     print(index, ":", item["name"])
 
-language = input("What language do you want?")
+language = input("What language do you want? english, chinese, japanese, or french: ").strip().lower()
 
-for index, item in enumerate(data, start=0):
-    print(index, ":", item["name", language])
+for mon in data:
+    if language in mon["name"]:
+        print(mon["name"][language])
 
-cart = []
-total = 0
-done = "no"
+type = input("what type do you want? :").strip().lower()
+for mon in data:
+    if type in mon["type"]:
+        print(mon["type"][language])
 
-while done == "no":
-    purchase = input("What would you like to buy? : ").strip().lower()
-    found = False
-    for items in item:
-        if purchase == data["Name"].strip().lower(): 
-            cart.append(items) 
-            total += items["Price"]   
-            done = input("Are you done with your purchase?")
-            found = True
-            break
+pokemon = input("search for a pokemon").strip().lower()
+list = []
+
+for mon in data:
+    if pokemon in mon["type"]:
+        print(mon["name"])
     
-    if not found:
-        print("Your Item is not avalible in this store")
-        done = input("Are you done with your purchase?")
-
-if done == "yes":
-    print("Here are the items in your cart")
-    for items in cart:
-        print("-", items)
-    print("Total: $", total)
-
-
 
 
 # Create a function that will take the data from the JSON file and you will iterate through the list of pokemon and print each pokemons name.
