@@ -2,11 +2,13 @@ import json
 ## Open the JSON file of pokemon data
 pokedex = open("./pokedex.json", encoding="utf8")
 ## create variable "data" that represents the enitre pokedex list
+grass = open("./types.json", encoding="utf8")
 data = json.load(pokedex)
+typ = json.load(grass)
 
 print(data[0])
 
-print("Welcome to Jiaxi's Store! Select an item to purchase!:")
+print("Welcome to Pokemon Store!")
 
 for index, item in enumerate(data, start=0):
     print(index, ":", item["name"])
@@ -17,17 +19,23 @@ for mon in data:
     if language in mon["name"]:
         print(mon["name"][language])
 
-type = input("what type do you want? :").strip().lower()
-for mon in data:
-    if type in mon["type"]:
-        print(mon["type"][language])
+for index, item in enumerate(data, start=0):
+    print(index, ":", item["type"])
 
-pokemon = input("search for a pokemon").strip().lower()
+tye = input("what type do you want? :").capitalize()
+
+for mond in data:
+    if tye in mond["type"]:
+        print(mond["name"][language])
+
+pokemon = input("search for a pokemon: ").capitalize()
 list = []
 
-for mon in data:
-    if pokemon in mon["type"]:
-        print(mon["name"])
+for mo in data:
+    if pokemon in mo["name"]:
+        print(mo["name"])
+    else:
+        print("not found")
     
 
 
