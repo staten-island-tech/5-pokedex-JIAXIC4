@@ -30,12 +30,13 @@ for mond in data:
 
 pokemon = input("search for a pokemon: ").capitalize()
 list = []
+def find_matching_names(pokemo, pokelist):
+    pokelist = data["name"]
+    pokemo = pokemon
+    if pokemo in pokelist:
+        list.append(pokemo)
 
-for mo in data:
-    if pokemon in mo["name"]:
-        print(mo["name"])
-    else:
-        print("not found")
+
     
 
 
