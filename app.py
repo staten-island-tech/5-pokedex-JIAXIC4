@@ -9,7 +9,6 @@ typ = json.load(grass)
 print(data[0])
 
 print("Welcome to Pokemon Store!")
-
 for index, item in enumerate(data, start=0):
     print(index, ":", item["name"])
 
@@ -18,25 +17,62 @@ language = input("What language do you want? english, chinese, japanese, or fren
 for mon in data:
     if language in mon["name"]:
         print(mon["name"][language])
+    else:
+        print("No Pokémon found matching your search.")
+
+
+
 
 for index, item in enumerate(data, start=0):
     print(index, ":", item["type"])
 
-tye = input("what type do you want? :").capitalize()
+def what_type(tyyy):
+    for mond in data:
+        if tyyy in mond["type"]:
+            print(mond["name"][language])
 
-for mond in data:
-    if tye in mond["type"]:
-        print(mond["name"][language])
-
-pokemon = input("search for a pokemon: ").capitalize()
-list = []
-def find_matching_names(pokemo, pokelist):
-    pokelist = data["name"]
-    pokemo = pokemon
-    if pokemo in pokelist:
-        list.append(pokemo)
+tyyy = input("what type do you want? :").capitalize()
+what_type(tyyy)
 
 
+def find_matching_names(search, pokelist, language):
+    matches = []
+
+    for mon in pokelist:
+        name = mon["name"][language]
+        if search.lower() in name.lower():
+            matches.append(name)
+
+    if matches:
+        print("Matching Pokémon:")
+        for m in matches:
+            print(m)
+    else:
+        print("No Pokémon found matching your search.")
+pokemon = input("Search for a pokemon: ").strip()
+find_matching_names(pokemon, data, language)
+
+pokemon_input = input("Search for a Pokémon: ").strip().lower()
+
+selected_pokemon = None
+
+for mon in data:
+    if pokemon_input in mon["name"][language].lower():
+        selected_pokemon = mon
+        break
+
+if selected_pokemon:
+    print(f"\nYou chose: {selected_pokemon['name'][language]}")
+
+    stats_choice = input("Would you like to see this Pokémon's base stats? (yes/no): ").strip().lower()
+    if stats_choice == "yes":
+        stats = ["HP", "Attack", "Defense", "Sp. Attack", "Sp. Defense", "Speed"]
+        print(f"\n{selected_pokemon['name'][language]}'s Base Stats:")
+        for stat in stats:
+            print(f"{stat}: {selected_pokemon['base'][stat]}")
+
+else:
+    print("No Pokémon found matching your search.")
     
 
 
